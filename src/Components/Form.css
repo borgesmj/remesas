@@ -1,0 +1,44 @@
+:root{
+    --primary-100:#1A2C5B;
+    --primary-200:#495488;
+    --primary-300:#a8b0eb;
+    --accent-100:#3A4B7F;
+    --accent-200:#cbd6ff;
+    --text-100:#FFFFFF;
+    --text-200:#e0e0e0;
+    --bg-100:#0F1C3F;
+    --bg-200:#212b50;
+    --bg-300:#3b426a;
+      
+}
+
+
+select{
+    width: 80px;
+    border-radius: 50px;
+    font-size: 15px;
+    padding: 10px;
+    background-color: var(--accent-200);
+    color: var(--primary-100);
+}
+
+.campo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+input[type='text']{
+    width: 70%;
+    font-size: 20px;
+    text-align: right;
+    outline: none;
+    background-color: var(--accent-200);
+    color: var(--primary-100);
+    border-radius: 50px;
+    padding: 10px;
+}
+
