@@ -52,11 +52,11 @@
 .Formulario-salida input[type='submit']{
   background-color: var(--bg-100);
     padding: 20px;
-    font-size: 15px;
+    font-size: 17px;
     border-radius: 50px;
     text-align: center;
     width: 125px;
-    color: var(--text-200);
+    color: var(--bg-100);
     font-weight: bold;
 }
 .campo{
@@ -70,6 +70,7 @@
   margin-left: 50px;
   font-size: 30px;
   font-weight: bold;
+  color: red
 }
 
 .Formulario-salida img{
@@ -174,6 +175,10 @@
 
       .closeBtn:hover{
         cursor: pointer;
+      }
+
+      input[type='submit']:hover{
+        cursor: pointer
       }
 
 
