@@ -18,7 +18,7 @@ function App() {
   //     se coloca el nuevo digito, de lo contrario se van colocando mas numeros
   // 4. Si el evento es el boton de borrar, se modifica el valor de entrada con un 'string.slice'
   // =========================================================================
-
+  console.log(tasaDeCambio)
 
   useEffect(() => {
     const handleKeyDown = (event) => {
