@@ -56,7 +56,7 @@
     border-radius: 50px;
     text-align: center;
     width: 125px;
-    color: var(--bg-100);
+    color: var(--text-100);
     font-weight: bold;
 }
 .campo{

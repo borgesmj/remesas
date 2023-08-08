@@ -11,7 +11,6 @@ const Navbar = () => {
         <li><a className='navlink' href="https://borgesmj.github.io/remesas">Envío de Remesas</a></li>
         <li><a className='navlink' href="">Tienda Virtual</a></li>
         <li><a className='navlink' href="">Cursos Digitales</a></li>
-        <li><a className='navlink' href="">Blog</a></li>
       </ul>
       <label htmlFor="navCheck">
         <span></span>
