@@ -19,7 +19,7 @@ function App() {
   // 4. Si el evento es el boton de borrar, se modifica el valor de entrada con un 'string.slice'
   // =========================================================================
 
-
+  console.log(tasaDeCambio)
   useEffect(() => {
     const handleKeyDown = (event) => {
       const regex = /[0-9]/g
