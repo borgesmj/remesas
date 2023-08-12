@@ -3,13 +3,22 @@ import Calculator from './Components/Calculator'
 import Footer from './Components/Footer'
 import Formulario from './Components/Formulario'
 import Navbar from './Components/Navbar'
-import { tasaDeCambio } from './tasaDeCambio'
+import { db } from './config/firebase'
+import { onValue, ref } from 'firebase/database'
+
 
 function App() {
   const [valueIn, setValueIn] = useState('0')
   const [valueOut, setValueOut] = useState('0')
-  const [calculator, setCalculator ] = useState(true)
+  const [calculator, setCalculator] = useState(true)
   const [formulario, setFormluario] = useState(false)
+  let tasa = 0
+
+  const tasasRef = ref(db, 'tasas');
+    onValue(tasasRef, snapshopt => {
+      const {peso} = snapshopt.val()
+      tasa = peso
+    })
 
   // =========================================================================
   // 1. Utilizamos un addEventListener para tomar el valor de una tecla presionadaa
@@ -19,7 +28,7 @@ function App() {
   // 4. Si el evento es el boton de borrar, se modifica el valor de entrada con un 'string.slice'
   // =========================================================================
 
-  console.log(tasaDeCambio)
+
   useEffect(() => {
     const handleKeyDown = (event) => {
       const regex = /[0-9]/g
@@ -29,11 +38,11 @@ function App() {
           setValueIn(event.key)
         } else {
           setValueIn((prevValue) => prevValue + event.key)
-        } 
-        } else if (event.key === 'Backspace'){
-          setValueIn((prevValue) => prevValue.slice(0, -1));
-        } else {
-          return
+        }
+      } else if (event.key === 'Backspace') {
+        setValueIn((prevValue) => prevValue.slice(0, -1));
+      } else {
+        return
       }
     }
 
@@ -52,37 +61,37 @@ function App() {
 
   const calculate = () => {
     // Parsear el valor de valueIn a número y asignarlo a valueOut
-    const result = parseFloat(valueIn) * (tasaDeCambio)
-    if (result === 0){
+    const result = parseFloat(valueIn) * (1 / tasa)
+    if (result === 0) {
       setValueOut(0)
-    } else{
+    } else {
       setValueOut(result.toFixed(2))
     }
   }
 
   return (
     <div>
-                  <Navbar />
-      {calculator &&       
-                  <Calculator
-                    valueIn={valueIn}
-                    setValueIn={setValueIn}
-                    valueOut={valueOut}
-                    setValueOut={setValueOut}
-                  />}
-      {formulario && 
-                  <Formulario
-                    setCalculator={ setCalculator}
-                    setFormluario={ setFormluario }
-                    monto = {valueIn}
-                    setValueIn = {setValueIn}
-                  />}
-      {calculator && <Footer 
-                    setFormluario = {setFormluario}
-                    setCalculator = {setCalculator}
-                    formulario = {formulario}
-                    valueIn = {valueIn}
-                  />}
+      <Navbar />
+      {calculator &&
+        <Calculator
+          valueIn={valueIn}
+          setValueIn={setValueIn}
+          valueOut={valueOut}
+          setValueOut={setValueOut}
+        />}
+      {formulario &&
+        <Formulario
+          setCalculator={setCalculator}
+          setFormluario={setFormluario}
+          monto={valueIn}
+          setValueIn={setValueIn}
+        />}
+      {calculator && <Footer
+        setFormluario={setFormluario}
+        setCalculator={setCalculator}
+        formulario={formulario}
+        valueIn={valueIn}
+      />}
     </div>
   )
 }
