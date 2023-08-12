@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import Navbar from './Components/Navbar'
+import { useEffect, useState } from 'react'
 import Calculator from './Components/Calculator'
 import Footer from './Components/Footer'
-import {tasaDeCambio} from './tasaDeCambio'
 import Formulario from './Components/Formulario'
+import Navbar from './Components/Navbar'
+import { tasaDeCambio } from './tasaDeCambio'
 
 function App() {
   const [valueIn, setValueIn] = useState('0')
@@ -12,7 +12,7 @@ function App() {
   const [formulario, setFormluario] = useState(false)
 
   // =========================================================================
-  // 1. Utilizamos un addEventListener para tomar el valor de una tecla presionada
+  // 1. Utilizamos un addEventListener para tomar el valor de una tecla presionadaa
   // 2. Con un regex evaluamos que los valores de entrada sean numeros exclusivamente
   // 3. A la entrada de numeros, se evalua si hay un cero como primer digito, si es asi, se borra y
   //     se coloca el nuevo digito, de lo contrario se van colocando mas numeros
