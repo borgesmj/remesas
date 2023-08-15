@@ -1,0 +1,62 @@
+:root{
+    --primary-100:#1A2C5B;
+    --primary-200:#495488;
+    --primary-300:#a8b0eb;
+    --accent-100:#3A4B7F;
+    --accent-200:#cbd6ff;
+    --text-100:#FFFFFF;
+    --text-200:#e0e0e0;
+    --bg-100:#0F1C3F;
+    --bg-200:#212b50;
+    --bg-300:#3b426a;
+      
+}
+
+.buttons{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+}
+
+.buttons .button:nth-child(10){
+    grid-area: 4 / 2 / 5 / 3;
+}
+
+.button{
+    background-color: var(--primary-200);
+    padding: 10px;
+    font-size: 35px;
+    text-align: center;
+    border-radius: 20px;
+    color: var(--text-200);
+}
+
+.border{
+    border-bottom: 3px solid var(--text-100);
+    border-left:3px solid var(--text-100) ;
+}
+
+.button-animation {
+    animation: pressButton 0.1s linear;
+  }
+  
+  @keyframes pressButton {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(2px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+@media (min-width: 1024px){
+
+    .button{
+        font-size: 25px;
+    }
+}

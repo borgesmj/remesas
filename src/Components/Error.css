@@ -1,0 +1,22 @@
+.error{
+    background-color: red;
+    position: fixed;
+    height: 50px;
+    width: 200px;
+    text-align: center;
+    font-weight: bold;
+    bottom: 10px;
+}
+
+@media (min-width: 768px) {
+    .error{
+        bottom: 370px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .error{
+        bottom: 35px;
+        left: 480px;
+    }
+}
