@@ -14,7 +14,7 @@ function App() {
   const [valueOut, setValueOut] = useState('0')
   const [calculator, setCalculator] = useState(true)
   const [formulario, setFormluario] = useState(false)
-
+  
 
   // const tasasRef = ref(db, 'tasas');
   //   onValue(tasasRef, snapshopt => {
@@ -23,15 +23,13 @@ function App() {
   //   })
 
 
-    useEffect(() => {
-        console.log(
-            `%cTasa del dia: ${tasaDeCambio}`,
-            "color:red;font-family:system-ui;font-size:4rem;-webkit-text-stroke: 1px black;font-weight:bold"
-          );
-          console.log(
-            `por cada 50.000 obtendras: ${50000/tasaDeCambio}`
-          )
-    }, [])
+    console.log(
+      `%cTasa del dia: ${tasaDeCambio}`,
+      "color:red;font-family:system-ui;font-size:4rem;-webkit-text-stroke: 1px black;font-weight:bold"
+    );
+    console.log(
+      `por cada 50.000 obtendras: ${50000/tasaDeCambio}`
+    )
 
   // =========================================================================
   // 1. Utilizamos un addEventListener para tomar el valor de una tecla presionadaa
