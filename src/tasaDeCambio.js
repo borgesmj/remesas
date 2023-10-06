@@ -1,1 +1,1 @@
-export  const tasaDeCambio = 1/130
+export  const tasaDeCambio = 1/126
