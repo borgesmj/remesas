@@ -1,28 +1,18 @@
-import React, { useState } from 'react'
-import './Footer.css'
-import Error from './Error'
+import React from "react";
+import "./Footer.css";
 
-const Footer = ({setFormluario, setCalculator, valueIn}) => {
-
-  const [error, setError] = useState(false)
-
-  const handleClick = () => {
-      if (valueIn < 50000){
-        setError(true)
-      } else {
-        setCalculator(false)
-      setFormluario(true)
-  }
-      }
+const Footer = ({ tasaDeCambio }) => {
   return (
     <footer>
-      {error && <Error
-        text = 'El monto minimo a enviar son 50.000 COP'
-      />}
-      <button onClick={handleClick}>Enviar</button>
+      <p>
+        Tasa del día: {tasaDeCambio} <br />
+        Por cada 50.000 COP, reciben {(50000 * (1 / tasaDeCambio)).toFixed(
+          2
+        )}{" "}
+        Bs
+      </p>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
-Footer
+export default Footer;

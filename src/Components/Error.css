@@ -1,4 +1,4 @@
-.error{
+.error-calculadora {
     background-color: red;
     position: fixed;
     height: 50px;
@@ -6,17 +6,33 @@
     text-align: center;
     font-weight: bold;
     bottom: 10px;
-}
-
-@media (min-width: 768px) {
-    .error{
-        bottom: 370px;
+  }
+  
+  .fixed {
+    position: fixed;
+  }
+  
+  .error-formulario {
+    background-color: red;
+    position: static;
+    height: 27px;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    bottom: 10px;
+    color: white;
+  }
+  
+  @media (min-width: 768px) {
+    .error-calculadora {
+      bottom: 300px;
     }
-}
-
-@media (min-width: 1024px) {
-    .error{
-        bottom: 35px;
-        left: 480px;
+  }
+  
+  @media (min-width: 1024px) {
+    .error {
+      bottom: 35px;
+      left: 480px;
     }
-}
+  }
+  
