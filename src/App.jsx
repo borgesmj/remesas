@@ -2,14 +2,52 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./Components/Navbar";
 import Calculator from "./Components/Calculator";
 import Footer from "./Components/Footer";
-import { tasaDeCambio } from "./tasaDeCambio";
+
 import Formulario from "./Components/Formulario";
+// Firebase dependencies
+import { initializeApp } from "firebase/app";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  QuerySnapshot,
+} from "firebase/firestore";
 
 function App() {
   const [valueIn, setValueIn] = useState("0");
   const [valueOut, setValueOut] = useState("0");
   const [calculator, setCalculator] = useState(true);
   const [formulario, setFormulario] = useState(false);
+  const [tasaDeCambio, setTasaDeCambio] = useState(0);
+
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
+  const firebaseApp = initializeApp({
+    apiKey: "AIzaSyBIlACx2gLAEaExSP9LiwKdWc9Il67WAKM",
+    authDomain: "remesas-d6147.firebaseapp.com",
+    projectId: "remesas-d6147",
+    storageBucket: "remesas-d6147.appspot.com",
+    messagingSenderId: "244991534687",
+    appId: "1:244991534687:web:8f8acba945167354695dea",
+    measurementId: "G-SZR3RY0C7E",
+  });
+
+  useEffect(() => {
+    const db = getFirestore(firebaseApp);
+    const tasas = collection(db, "tasasdecambio");
+
+    getDocs(tasas)
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          setTasaDeCambio(doc.data().tasadecambio);
+        });
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   // =========================================================================
   // 1. Utilizamos un addEventListener para tomar el valor de una tecla presionada
