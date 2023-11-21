@@ -49,6 +49,10 @@ function App() {
       .catch((error) => console.log(error));
   }, []);
 
+  useEffect(() => {
+    setMetaTag();
+  }, [tasaDeCambio]);
+
   // =========================================================================
   // 1. Utilizamos un addEventListener para tomar el valor de una tecla presionada
   // 2. Con un regex evaluamos que los valores de entrada sean numeros exclusivamente
@@ -69,6 +73,16 @@ function App() {
       setValueOut(0);
     } else {
       setValueOut(result.toFixed(2));
+    }
+  };
+
+  const setMetaTag = () => {
+    const metaTag = document.querySelector('meta[property="og:description"]');
+    if (metaTag) {
+      metaTag.setAttribute(
+        "content",
+        `la tasa del dia de hoy es ${tasaDeCambio}`
+      );
     }
   };
 
