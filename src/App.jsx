@@ -69,7 +69,7 @@ function App() {
   const calculate = () => {
     // Parsear el valor de valueIn a número y asignarlo a valueOut
     const result = parseFloat(valueIn) * (1 / tasaDeCambio);
-    if (result === 0) {
+    if (result === "0") {
       setValueOut(0);
     } else {
       setValueOut(result.toFixed(2));
@@ -89,6 +89,7 @@ function App() {
   return (
     <div className="app">
       <Navbar />
+      {/* 
       {calculator && (
         <Calculator
           valueIn={valueIn}
@@ -107,7 +108,7 @@ function App() {
           monto={valueIn}
           setValueIn={setValueIn}
         />
-      )}
+      )} */}
     </div>
   );
 }
