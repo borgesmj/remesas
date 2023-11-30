@@ -1,13 +1,13 @@
 import React from "react";
 
-const Screen = () => {
+const Screen = ({valueIn, valueOut}) => {
   return (
     <form className="w-full px-4">
       <div className="flex flex-row mb-2 w-full items-center md:text-2xl lg:text-4xl h-8 md:h-12 ">
         <select
           name=""
           id=""
-          className="bg-[#808080] w-1/5 md:text-2xl lg:text-4xl h-full"
+          className="bg-[#808080] w-1/5 md:text-2xl lg:text-4xl h-full text-white"
           style={{ borderRadius: "0.5rem 0rem 0rem 0.5rem" }}
         >
           <option value="" className="">
@@ -18,13 +18,15 @@ const Screen = () => {
           type="text"
           className="bg-[#808080] w-4/5 text-right px-4 text-white md:text-2xl lg:text-4xl  font-mono h-full"
           style={{ borderRadius: "0 0.5rem 0.5rem 0" }}
+          value={valueIn}
+          readOnly
         />
       </div>
       <div className="flex flex-row mb-2 w-full items-center md:text-2xl lg:text-4xl h-8 md:h-12">
         <select
           name=""
           id=""
-          className="bg-[#808080] w-1/5 md:text-2xl lg:text-4xl h-full"
+          className="bg-[#808080] w-1/5 md:text-2xl lg:text-4xl h-full text-white"
           style={{ borderRadius: "0.5rem 0rem 0rem 0.5rem" }}
         >
           <option value="" className="">
@@ -35,6 +37,8 @@ const Screen = () => {
           type="text"
           className="bg-[#808080] w-4/5 text-right px-4 text-white md:text-2xl lg:text-4xl font-mono h-full"
           style={{ borderRadius: "0 0.5rem 0.5rem 0" }}
+          value={valueOut}
+          readOnly
         />
       </div>
     </form>

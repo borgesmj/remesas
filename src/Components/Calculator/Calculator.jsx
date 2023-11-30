@@ -1,23 +1,37 @@
 import React from "react";
 import Botones from "./Botones";
 import Screen from "./Screen";
+import Footer from "./Footer";
+import Error from "../Error";
 
 const Calculatore = ({
   valueIn,
   setValueIn,
   valueOut,
-  setCalculator,
-  setFormulario,
+  tasaDeCambio,
+  error,
+  setError,
+  errorMessage,
+  setErrorMessage
 }) => {
   return (
     <section className="my-8 h-fit py-4 w-full bg-[#4295e7]">
-      <Screen/>
+      <Screen
+        valueIn={valueIn}
+        valueOut={valueOut}
+      />
       <Botones
         setValueIn={setValueIn}
         valueIn={valueIn}
-        setCalculator={setCalculator}
-        setFormulario={setFormulario}
+        setErrorMessage = {setErrorMessage}
+        setError = {setError}
       />
+      <Footer
+        tasaDeCambio={ tasaDeCambio}
+        />
+      {error && <Error
+        errorMessage = {errorMessage}
+      />}
     </section>
   );
 };
