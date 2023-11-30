@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Components/Navbar/Navbar";
 import Guide from "./Components/Guide/Guide";
-import Calculator from "./Components/Calculator";
+import Calculator from "./Components/Calculator/Calculator";
 import Footer from "./Components/Footer";
 
 import Formulario from "./Components/Formulario";
@@ -90,8 +90,9 @@ function App() {
   return (
     <div className="fixed top-0 bottom-0 left-0 right-0 max-h-screen max-w-screen">
       <Navbar />
-      <div className="z-10 app-container fixed bottom-0 left-0 right-0 w-full md:w-1/2 md:mx-auto ">
+      <div className="z-10 app-container fixed bottom-0 left-0 right-0 w-full md:w-1/2 md:mx-auto">
         <Guide/>
+        <Calculator/>
       </div>
       {/* 
       {calculator && (

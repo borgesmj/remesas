@@ -1,6 +1,6 @@
 import React from "react";
-import Form from "./Form";
 import Botones from "./Botones";
+import Screen from "./Screen";
 
 const Calculatore = ({
   valueIn,
@@ -10,14 +10,14 @@ const Calculatore = ({
   setFormulario,
 }) => {
   return (
-    <section className="container">
-      <Form valueIn={valueIn} valueOut={valueOut} />
-      <Botones
+    <section className="my-8 h-fit py-4 w-full">
+      <Screen/>
+      {/* <Botones
         setValueIn={setValueIn}
         valueIn={valueIn}
         setCalculator={setCalculator}
         setFormulario={setFormulario}
-      />
+      /> */}
     </section>
   );
 };

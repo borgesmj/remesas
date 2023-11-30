@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./Botones.css";
+// import "./Botones.css";
 import { FaDeleteLeft } from "react-icons/fa6";
-import Error from "./Error";
+import Error from "../Error";
 
 const Botones = ({ setValueIn, valueIn, setFormulario, setCalculator }) => {
   const [error, setError] = useState(false);
@@ -78,13 +78,13 @@ const Botones = ({ setValueIn, valueIn, setFormulario, setCalculator }) => {
     }
   };
   return (
-    <div className="buttons">
+    <div className="flex flex-wrap w-full bg-[#00ff00]">
       {buttons.map((button) => (
         <button
           onClick={handleClick}
           key={button.id}
           id={button.id}
-          className={button.class}
+          className='bg-red-600'
         >
           {button.value}
         </button>
