@@ -1,22 +1,44 @@
-import React from 'react'
+import React from "react";
 
 const Screen = () => {
   return (
-    <form className='w-full px-4'>
-      <div className='flex flex-row mb-2 w-full items-center lg:text-2xl'>
-        <select name="" id="" className='bg-[#808080] w-1/5 rounded-t-3xl rounded-l-3xl rounded-b-3xl rounded-r-none lg:w-1/5'>
-            <option value="" className=''>COP</option>
+    <form className="w-full px-4">
+      <div className="flex flex-row mb-2 w-full items-center md:text-2xl lg:text-4xl h-8 md:h-12 ">
+        <select
+          name=""
+          id=""
+          className="bg-[#808080] w-1/5 md:text-2xl lg:text-4xl h-full"
+          style={{ borderRadius: "0.5rem 0rem 0rem 0.5rem" }}
+        >
+          <option value="" className="">
+            COP
+          </option>
         </select>
-        <input type="text" className='bg-[#808080] w-4/5 rounded-t-3xl rounded-l-none rounded-b-3xl rounded-r-3xl text-right px-4 text-white  font-mono lg:w-4/5' />
+        <input
+          type="text"
+          className="bg-[#808080] w-4/5 text-right px-4 text-white md:text-2xl lg:text-4xl  font-mono h-full"
+          style={{ borderRadius: "0 0.5rem 0.5rem 0" }}
+        />
       </div>
-      <div className='flex flex-row mb-2 w-full items-center lg:text-2xl'>
-        <select name="" id="" className='bg-[#808080] w-1/5 rounded-t-3xl rounded-l-3xl rounded-b-3xl rounded-r-none lg:w-1/5 '>
-            <option value="" className=''>Bs</option>
+      <div className="flex flex-row mb-2 w-full items-center md:text-2xl lg:text-4xl h-8 md:h-12">
+        <select
+          name=""
+          id=""
+          className="bg-[#808080] w-1/5 md:text-2xl lg:text-4xl h-full"
+          style={{ borderRadius: "0.5rem 0rem 0rem 0.5rem" }}
+        >
+          <option value="" className="">
+            Bs
+          </option>
         </select>
-        <input type="text" className='bg-[#808080] w-4/5 rounded-t-3xl rounded-l-none rounded-b-3xl rounded-r-3xl text-right px-4 text-white  font-mono lg:w-4/5' />
+        <input
+          type="text"
+          className="bg-[#808080] w-4/5 text-right px-4 text-white md:text-2xl lg:text-4xl font-mono h-full"
+          style={{ borderRadius: "0 0.5rem 0.5rem 0" }}
+        />
       </div>
     </form>
-  )
-}
+  );
+};
 
-export default Screen
+export default Screen;

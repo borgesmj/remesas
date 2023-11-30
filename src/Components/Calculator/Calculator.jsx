@@ -10,14 +10,14 @@ const Calculatore = ({
   setFormulario,
 }) => {
   return (
-    <section className="my-8 h-fit py-4 w-full">
+    <section className="my-8 h-fit py-4 w-full bg-[#4295e7]">
       <Screen/>
-      {/* <Botones
+      <Botones
         setValueIn={setValueIn}
         valueIn={valueIn}
         setCalculator={setCalculator}
         setFormulario={setFormulario}
-      /> */}
+      />
     </section>
   );
 };

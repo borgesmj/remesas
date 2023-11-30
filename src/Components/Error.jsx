@@ -1,5 +1,5 @@
 import React from "react";
-import "./Error.css";
+// import "./Error.css";
 
 const Error = ({ text, className }) => {
   return <div className={className}>{text}</div>;

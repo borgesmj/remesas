@@ -64,8 +64,8 @@ const Botones = ({ setValueIn, valueIn, setFormulario, setCalculator }) => {
     { value: 7, id: "btnSeven", class: "button border shadow" },
     { value: 8, id: "btnEight", class: "button border shadow" },
     { value: 9, id: "btnNine", class: "button border shadow" },
-    { value: 0, id: "btnZero", class: "button border shadow" },
     { value: <FaDeleteLeft />, id: "btnDelete", class: "button border shadow" },
+    { value: 0, id: "btnZero", class: "button border shadow" },
   ];
 
   const handleSendClick = () => {
@@ -78,18 +78,19 @@ const Botones = ({ setValueIn, valueIn, setFormulario, setCalculator }) => {
     }
   };
   return (
-    <div className="flex flex-wrap w-full bg-[#00ff00]">
+    <div className="flex flex-wrap flex-row justify-center items-center w-full  px-4">
       {buttons.map((button) => (
         <button
           onClick={handleClick}
           key={button.id}
           id={button.id}
-          className='bg-red-600'
+          className='w-[30%] h-12 lg:h-20 flex justify-center items-center bg-[#daf5da] m-1 rounded-2xl shadow-3xl text-xl md:text-2xl lg:text-4xl lg:hover:bg-[#8ff08f] lg:hover:text-white lg:hover:font-bold'
         >
           {button.value}
         </button>
       ))}
-      <button className="button border shadow" onClick={handleSendClick}>
+      <button className="w-[30%] h-12 lg:h-20 flex justify-center items-center bg-[#daf5da] m-1 rounded-2xl shadow-3xl text-xl md:text-2xl lg:text-4xl lg:hover:bg-[#8ff08f] lg:hover:text-white lg:hover:font-bold'
+        " onClick={handleSendClick}>
         Enviar
       </button>
       {error && (

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Formulario.css";
+// import "./Formulario.css";
 import avatar from "../Img/myAvatar.svg";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import Error from "./Error";
