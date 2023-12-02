@@ -14,30 +14,25 @@ const Calculatore = ({
   errorMessage,
   setErrorMessage,
   setCurrStepMessage,
-  setCurrStep
+  setCurrStep,
 }) => {
   useEffect(() => {
-    setCurrStep(1)
-  setCurrStepMessage('Calcula La cantidad de Bs que recibirá en Venezuelaaaaa')
-  }, [])
+    setCurrStep(1);
+    setCurrStepMessage(
+      "Calcula La cantidad de Bs que recibirá en Venezuelaaaaa"
+    );
+  }, []);
   return (
     <section className="my-8 h-fit py-4 w-full bg-[#4295e7]">
-      <Screen
-        valueIn={valueIn}
-        valueOut={valueOut}
-      />
+      <Screen valueIn={valueIn} valueOut={valueOut} />
       <Botones
         setValueIn={setValueIn}
         valueIn={valueIn}
-        setErrorMessage = {setErrorMessage}
-        setError = {setError}
+        setErrorMessage={setErrorMessage}
+        setError={setError}
       />
-      <Footer
-        tasaDeCambio={ tasaDeCambio}
-        />
-      {error && <Error
-        errorMessage = {errorMessage}
-      />}
+      <Footer tasaDeCambio={tasaDeCambio} />
+      {error && <Error errorMessage={errorMessage} />}
     </section>
   );
 };
