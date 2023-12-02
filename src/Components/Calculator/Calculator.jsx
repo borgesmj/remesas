@@ -12,8 +12,12 @@ const Calculatore = ({
   error,
   setError,
   errorMessage,
-  setErrorMessage
+  setErrorMessage,
+  setCurrStepMessage,
+  setCurrStep
 }) => {
+  setCurrStep(1)
+  setCurrStepMessage('Calcula La cantidad de Bs que recibirá en Venezuelaaaaa')
   return (
     <section className="my-8 h-fit py-4 w-full bg-[#4295e7]">
       <Screen

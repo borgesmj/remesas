@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import Navbar from "./Components/Navbar/Navbar";
 import Guide from "./Components/Guide/Guide";
 import Calculator from "./Components/Calculator/Calculator";
+// Dependencies
+import { Routes, Route } from "react-router-dom";
+//Pages
+import Page2 from "./Pages/Page2";
 import Footer from "./Components/Calculator/Footer";
 
 import Formulario from "./Components/Formulario";
@@ -20,6 +24,8 @@ function App() {
   const [tasaDeCambio, setTasaDeCambio] = useState(0);
   const [error, setError] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
+  const [currStep, setCurrStep] = useState(1)
+  const [currStepMessage, setCurrStepMessage] = useState('')
 
 
 
@@ -100,21 +106,36 @@ function App() {
     }
   };
 
+
   return (
     <div className="fixed top-0 bottom-0 left-0 right-0 max-h-screen max-w-screen">
       <Navbar />
       <div className="z-10 app-container fixed bottom-0 left-0 right-0 w-full md:w-1/2 md:mx-auto">
-        <Guide />
-        <Calculator
-          valueIn={valueIn}
-          setValueIn={setValueIn}
-          valueOut={valueOut}
-          tasaDeCambio = {tasaDeCambio}
-          error = {error}
-          setError={setError}
-          errorMessage = {errorMessage}
-          setErrorMessage = {setErrorMessage}
+        <Guide
+          currStep = {currStep}
+          currStepMessage = {currStepMessage}
         />
+        <Routes>
+          <Route
+            path="/remesas/"
+            element={<Calculator
+              valueIn={valueIn}
+              setValueIn={setValueIn}
+              valueOut={valueOut}
+              tasaDeCambio = {tasaDeCambio}
+              error = {error}
+              setError={setError}
+              errorMessage = {errorMessage}
+              setErrorMessage = {setErrorMessage}
+              setCurrStepMessage = {setCurrStepMessage}
+              setCurrStep={setCurrStep}
+            />}
+          ></Route>
+          <Route
+          path="/remesas/paso-2"
+          element={<Page2/>}
+          ></Route>
+        </Routes>
       </div>
       {/* 
       {calculator && (
