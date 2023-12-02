@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 // import "./Botones.css";
 import { FaDeleteLeft } from "react-icons/fa6";
 import Error from "../Error";
@@ -30,11 +31,15 @@ const Botones = ({ setValueIn, valueIn, setError, setErrorMessage }) => {
       setValueIn((prevValue) => prevValue.slice(0, -1));
     }
   };
+  const navigate = useNavigate()
 
   const handleSend = () => {
     if (Number(valueIn) < 50000){
       setError(true)
       setErrorMessage('Disculpa; el monto mínimo para enviar es 50.000 Cop')
+      return
+    } else{
+      navigate("/remesas/paso-2");
     }
   };
   return (

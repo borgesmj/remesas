@@ -133,7 +133,7 @@ function App() {
             />}
           ></Route>
           <Route
-          path="/remesas/paso-2"
+          path="/remesas/paso-2/"
           element={<Page2
             setCurrStep={setCurrStep}
             setCurrStepMessage = {setCurrStepMessage}
