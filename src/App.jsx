@@ -26,6 +26,7 @@ function App() {
   const [errorMessage, setErrorMessage] = useState('')
   const [currStep, setCurrStep] = useState(1)
   const [currStepMessage, setCurrStepMessage] = useState('')
+  const [order, setOrder] = useState({})
 
 
 
@@ -106,7 +107,7 @@ function App() {
     }
   };
 
-
+  console.log(order)
   return (
     <div className="fixed top-0 bottom-0 left-0 right-0 max-h-screen max-w-screen">
       <Navbar />
