@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { FaDeleteLeft } from "react-icons/fa6";
 import Error from "../Error";
 
-const Botones = ({ setValueIn, valueIn, setError, setErrorMessage }) => {
+const Botones = ({ setValueIn, valueIn, setError, setErrorMessage, setOrder, order }) => {
   const buttons = [
     { value: 1, id: "btnOne", class: "button border shadow" },
     { value: 2, id: "btnTwo", class: "button border shadow" },
@@ -19,7 +19,14 @@ const Botones = ({ setValueIn, valueIn, setError, setErrorMessage }) => {
     { value: 0, id: "btnZero", class: "button border shadow" },
   ];
 
+  useEffect(() => {
+    if (order.id){
+      setValueIn(order.monto)
+    }
+  })
+
   const handleClick = (value) => {
+    setError(false)
     const regex = /[0-9]/g;
     if (regex.test(value)) {
       if (valueIn === "0") {
@@ -32,6 +39,10 @@ const Botones = ({ setValueIn, valueIn, setError, setErrorMessage }) => {
     }
   };
   const navigate = useNavigate()
+  const getId = () => {
+    const fecha = Date.now().toString().substring(6)
+    return fecha
+  }
 
   const handleSend = () => {
     if (Number(valueIn) < 50000){
@@ -39,7 +50,16 @@ const Botones = ({ setValueIn, valueIn, setError, setErrorMessage }) => {
       setErrorMessage('Disculpa; el monto mínimo para enviar es 50.000 Cop')
       return
     } else{
-      navigate("/remesas/paso-2");
+      if(order.id){
+        setOrder({...order, monto: valueIn
+        })
+        navigate("/remesas/paso-2");
+      } else{
+        setOrder({
+          id: getId(), monto: valueIn
+        })
+        navigate("/remesas/paso-2");
+      }
     }
   };
   return (

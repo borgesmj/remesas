@@ -6,16 +6,16 @@ import Calculator from "./Components/Calculator/Calculator";
 import { Routes, Route } from "react-router-dom";
 //Pages
 import Page2 from "./Pages/Page2";
-import Footer from "./Components/Calculator/Footer";
+import Page3 from "./Pages/Page3";
+import Page4 from "./Pages/Page4";
 
-import Formulario from "./Components/Formulario";
+
 // Firebase dependencies
 import { initializeApp } from "firebase/app";
 import {
   getFirestore,
   collection,
   getDocs,
-  QuerySnapshot,
 } from "firebase/firestore";
 
 function App() {
@@ -27,6 +27,7 @@ function App() {
   const [currStep, setCurrStep] = useState(1)
   const [currStepMessage, setCurrStepMessage] = useState('')
   const [order, setOrder] = useState({})
+  const [tasaUsdVen, setTasaUsdVen] = useState(0)
 
 
 
@@ -44,10 +45,17 @@ function App() {
     const db = getFirestore(firebaseApp);
     const tasas = collection(db, "tasasdecambio");
 
+    if (order){
+      setValueIn(String(valueIn))
+    }
+
+    console.log(valueIn)
+
     getDocs(tasas)
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
           setTasaDeCambio(doc.data().tasadecambio);
+          setTasaUsdVen(doc.data().usdven)
         });
       })
       .catch((error) => console.log(error));
@@ -64,21 +72,6 @@ function App() {
   //     se coloca el nuevo digito, de lo contrario se van colocando mas numeros
   // 4. Si el evento es el boton de borrar, se modifica el valor de entrada con un 'string.slice'
   // =========================================================================
-
-  // useEffect(() => {
-  //   // Realizar el cálculo solo cuando valueIn cambie
-  //   calculate();
-  // }, [valueIn]);
-
-  // const calculate = () => {
-  //   // Parsear el valor de valueIn a número y asignarlo a valueOut
-  //   const result = parseFloat(valueIn) * (1 / tasaDeCambio);
-  //   if (result === "0") {
-  //     setValueOut(0);
-  //   } else {
-  //     setValueOut(result.toFixed(2));
-  //   }
-  // };
 
   useEffect(() => {
     calculate()
@@ -107,7 +100,8 @@ function App() {
     }
   };
 
-  console.log(order)
+
+
   return (
     <div className="fixed top-0 bottom-0 left-0 right-0 max-h-screen max-w-screen">
       <Navbar />
@@ -130,37 +124,51 @@ function App() {
               setErrorMessage = {setErrorMessage}
               setCurrStepMessage = {setCurrStepMessage}
               setCurrStep={setCurrStep}
+              setOrder = {setOrder}
+              order = {order}
             />}
           ></Route>
           <Route
           path="/remesas/paso-2/"
-          element={<Page2
-            setCurrStep={setCurrStep}
-            setCurrStepMessage = {setCurrStepMessage}
-          />}
+          element={
+            <Page2
+              setCurrStep={setCurrStep}
+              setCurrStepMessage = {setCurrStepMessage}
+              error = {error}
+              setError = {setError}
+              errorMessage = {errorMessage}
+              setErrorMessage = {setErrorMessage}
+              setOrder = {setOrder}
+              order = {order}
+            />
+        }
+          ></Route>
+          <Route
+            path="/remesas/paso-3/"
+            element={
+              <Page3
+                setCurrStep={setCurrStep}
+                setCurrStepMessage = {setCurrStepMessage}
+                order = {order}
+                setOrder={setOrder}
+              />
+            }
+          ></Route>
+          <Route
+            path="/remesas/paso-4/"
+            element={
+              <Page4
+                order= {order}
+                setCurrStep={setCurrStep}
+                setCurrStepMessage={setCurrStepMessage}
+                tasaDeCambio= { tasaDeCambio}
+                setOrder = {setOrder}
+                tasaUsdVen = {tasaUsdVen}
+              />
+            }
           ></Route>
         </Routes>
       </div>
-      {/* 
-      {calculator && (
-        <Calculator
-          valueIn={valueIn}
-          setValueIn={setValueIn}
-          valueOut={valueOut}
-          setValueOut={setValueOut}
-          setCalculator={setCalculator}
-          setFormulario={setFormulario}
-        />
-      )}
-      {calculator && <Footer tasaDeCambio={tasaDeCambio} />}
-      {formulario && (
-        <Formulario
-          setCalculator={setCalculator}
-          setFormulario={setFormulario}
-          monto={valueIn}
-          setValueIn={setValueIn}
-        />
-      )} */}
     </div>
   );
 }
