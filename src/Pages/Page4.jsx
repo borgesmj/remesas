@@ -31,7 +31,7 @@ const Page4 = ({
   };
 
   return (
-    <div className="bg-[#4295e7] p-4 flex flex-col justify-between items-center mt-8 w-full text-xl md:text-2xl">
+    <div className="bg-[#4295e7] h-fit p-4 flex flex-col justify-between items-center mt-8 w-full text-xl md:text-2xl">
       {Object.keys(order).length > 0 ? (
         <>
           <div className="campo w-full h-8 flex flex-row justify-between my-4 items-center">
@@ -43,7 +43,7 @@ const Page4 = ({
             </NavLink>
           </div>
           <h1 className="font-bold">Envío de Remesas a Venezuela</h1>
-          <table className="w-full  text-lg md:text-xl lg:text-2xl">
+          <table className="w-full  text-[0.9rem] leading-[1rem] md:text-xl lg:text-2xl">
             <tbody className="w-full flex flex-col">
               <tr className="w-full flex flex-row justify-between items-center">
                 <th className="w-2/5 flex justify-end md:ml-2">Nombre:</th>
@@ -69,14 +69,14 @@ const Page4 = ({
                   {order.datosPersonales?.cuenta}
                 </td>
               </tr>
-              <tr className="w-full flex flex-row justify-between items-center text-xs">
+              <tr className="w-full flex flex-row justify-between items-center">
                 <th className="w-2/5 flex justify-end md:ml-2">
                   Monto a Enviar:
                 </th>
                 <td className="w-3/5 ml-2 lg:ml-4">{order.monto} COP</td>
               </tr>
               <tr className="w-full flex flex-row justify-between items-center">
-                <th className="w-2/5 flex justify-end md:ml-2 text-xs">
+                <th className="w-2/5 flex justify-end md:ml-2">
                   Monto a recibir:
                 </th>
                 <td className="w-3/5 ml-2 lg:ml-4">
@@ -87,16 +87,16 @@ const Page4 = ({
                 <th className="w-2/5 flex justify-end md:ml-2">
                   Dolares aprox.:
                 </th>
-                <td className="w-3/5 text-xs md:text-lg ml-2 lg:ml-4">
+                <td className="w-3/5  ml-2 lg:ml-4">
                   {((order.monto / tasaDeCambio) / tasaUsdVen).toFixed(2)} $
                 </td>
               </tr>
-              <span className="w-full text-center text-xs lg:text-lg text-red-600 font-bold">Este valor es solo un cálculo aproximado</span>
+              <tr className="flex justify-center"><td className="text-center"><span className="w-full text-center text-xs lg:text-lg text-red-600 font-bold">El cálculo de dolares es solo referencial</span></td></tr>
               <tr className="w-full flex flex-row justify-between items-center">
-                <th className="w-2/5 flex justify-end md:ml-2 text-xs">
+                <th className="w-2/5 flex justify-end md:ml-2">
                   Forma de Pago:
                 </th>
-                <td className="w-3/5 text-xs md:text-lg ml-2 lg:ml-4">
+                <td className="w-3/5 md:text-lg ml-2 lg:ml-4">
                   {order.formaPago}
                 </td>
               </tr>
@@ -105,7 +105,7 @@ const Page4 = ({
           </table>
           <div className="campo w-full py-4 m-2 md:m-4 flex flex-row justify-around">
             <button
-              className="p-4 h-fit w-fit bg-green-600 rounded-xl text-white font-bold"
+              className="text-xl lg:text-2xl text-white font-bold w-1/3 h-8 p-8 bg-lime-600 flex justify-center items-center mt-0 rounded-xl lg:border-[#4295e7] lg:border-[4px] lg:hover:border-white lg:hover:border-[4px] lg:hover:border-solid"
               onClick={(e) => handleClick(e, order)}
             >
               Enviar

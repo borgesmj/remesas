@@ -45,12 +45,6 @@ function App() {
     const db = getFirestore(firebaseApp);
     const tasas = collection(db, "tasasdecambio");
 
-    if (order){
-      setValueIn(String(valueIn))
-    }
-
-    console.log(valueIn)
-
     getDocs(tasas)
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
@@ -64,14 +58,6 @@ function App() {
   useEffect(() => {
     setMetaTag();
   }, [tasaDeCambio]);
-
-  // =========================================================================
-  // 1. Utilizamos un addEventListener para tomar el valor de una tecla presionada
-  // 2. Con un regex evaluamos que los valores de entrada sean numeros exclusivamente
-  // 3. A la entrada de numeros, se evalua si hay un cero como primer digito, si es asi, se borra y
-  //     se coloca el nuevo digito, de lo contrario se van colocando mas numeros
-  // 4. Si el evento es el boton de borrar, se modifica el valor de entrada con un 'string.slice'
-  // =========================================================================
 
   useEffect(() => {
     calculate()
@@ -96,11 +82,12 @@ function App() {
       metaTag.setAttribute(
         "content",
         `la tasa del dia de hoy es ${tasaDeCambio}`
-      );
-    }
-  };
-
-
+        );
+      }
+    };
+    
+    
+    console.log(order)
 
   return (
     <div className="fixed top-0 bottom-0 left-0 right-0 max-h-screen max-w-screen">

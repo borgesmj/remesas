@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-.app-container{
-    height: calc(100dvh - 3rem);
+.app-container {
+  height: calc(100dvh - 3rem);
 }
 @media (min-width: 1024px) {
-.app-container{
+  .app-container {
     height: calc(100dvh - 5rem);
-}
+  }
 }
