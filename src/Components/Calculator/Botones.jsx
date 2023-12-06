@@ -20,10 +20,10 @@ const Botones = ({ setValueIn, valueIn, setError, setErrorMessage, setOrder, ord
   ];
 
   useEffect(() => {
-    if (order.id){
-      setValueIn(order.monto)
+    if (Object.keys(order).length > 0){
+      setValueIn(valueIn)
     }
-  })
+  }, [order])
 
   const handleClick = (value) => {
     setError(false)
@@ -62,7 +62,6 @@ const Botones = ({ setValueIn, valueIn, setError, setErrorMessage, setOrder, ord
       }
     }
   };
-  console.log(valueIn)
   return (
     <div className="flex flex-wrap flex-row justify-center items-center w-full  px-4">
       {buttons.map((button) => (

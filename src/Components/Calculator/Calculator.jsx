@@ -24,7 +24,6 @@ const Calculatore = ({
       "Calcula La cantidad de Bs que recibirá en Venezuela"
     );
   }, []);
-  console.log(valueIn)
   return (
     <section className="my-8 h-fit py-4 w-full bg-[#4295e7]">
       <Screen valueIn={valueIn} valueOut={valueOut} />

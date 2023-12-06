@@ -26,3 +26,29 @@ nav > ul{
   --tw-translate-x: 0%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
+
+.burger-animation{
+  animation-name: burger-animation;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-iteration-count: inherit;
+}
+
+@keyframes burger-animation{
+  0%{
+    background-color: red;
+  }
+  25%{
+    background-color: transparent;
+  }
+  50%{
+    background-color: red;
+  }
+  75%{
+    background-color: transparent;
+
+  }
+  100%{
+    background-color: red;
+  }
+}

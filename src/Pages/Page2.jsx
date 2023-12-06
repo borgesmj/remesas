@@ -76,7 +76,7 @@ const Page2 = ({
         </label>
         <input
           type="text"
-          className="w-4/5 h-full bg-[#eefffc] rounded-md text-2xl focus:bg-[#e5bdf5]"
+          className="w-4/5 h-full bg-[#eefffc] rounded-md text-2xl focus:bg-[#e5bdf5] outline-none px-2"
           id="nombre"
           value={nombre}
           onChange={(e) => {
@@ -94,7 +94,7 @@ const Page2 = ({
         </label>
         <input
           type="text"
-          className="w-4/5 h-full bg-[#eefffc] rounded-md text-2xl focus:bg-[#e5bdf5]"
+          className="w-4/5 h-full bg-[#eefffc] rounded-md text-2xl focus:bg-[#e5bdf5] outline-none px-2"
           id="cedula"
           value={documento}
           onChange={(e) => {
@@ -112,7 +112,7 @@ const Page2 = ({
         </label>
         <input
           type="text"
-          className="w-4/5 h-full bg-[#eefffc] rounded-md text-2xl focus:bg-[#e5bdf5]"
+          className="w-4/5 h-full bg-[#eefffc] rounded-md text-2xl focus:bg-[#e5bdf5] outline-none px-2"
           id="banco"
           value={banco}
           onChange={(e) => {
@@ -130,7 +130,7 @@ const Page2 = ({
         </label>
         <input
           type="text"
-          className="w-4/5 h-full bg-[#eefffc] rounded-md text-2xl focus:bg-[#e5bdf5]"
+          className="w-4/5 h-full bg-[#eefffc] rounded-md text-2xl focus:bg-[#e5bdf5] outline-none px-2"
           id="cuenta"
           value={cuenta}
           onChange={(e) => {

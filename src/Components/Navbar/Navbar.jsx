@@ -12,7 +12,7 @@ const Navbar = () => {
         <li className='py-4 px-2'><a className='navlink text-2xl lg:relative before:w-0 before:h-full before:absolute before:top-0 before:left-0 before:border-b-solid before:border-b-[4px] before:border-white hover:before:w-full before:transition-all before:rounded-lg' href="https://sweet-bites.co/">Sweet Bites</a></li>
         <li className='py-4 px-2'><a className='navlink text-2xl lg:relative before:w-0 before:h-full before:absolute before:top-0 before:left-0 before:border-b-solid before:border-b-[4px] before:border-white hover:before:w-full before:transition-all before:rounded-lg' href="">Cursos Digitales</a></li>
       </ul>
-      <label htmlFor="navCheck" className='h-full w-8 flex flex-col justify-between items-center md:hidden'>
+      <label htmlFor="navCheck" className='burger-animation h-full w-8 flex flex-col justify-between items-center md:hidden'>
         <span className='w-full border-b-solid border-white border-[1px]'></span>
         <span className='w-full border-b-solid border-white border-[1px]'></span>
         <span className='w-full border-b-solid border-white border-[1px]'></span>
